@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Header from "@/components/Header";
 import "@/styles/global.css";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
     title: string;
@@ -23,13 +24,6 @@ const { title } = Astro.props;
             <h1 class="text-4xl font-bold mb-8 tracking-tight">{title}</h1>
             <slot />
         </main>
-        <footer class="bg-muted text-muted-foreground mt-12 py-6">
-            <div class="container mx-auto px-6 text-center">
-                <p>
-                    &copy; {new Date().getFullYear()} Homeschool Hub. All rights
-                    reserved.
-                </p>
-            </div>
-        </footer>
+        <Footer />
     </body>
 </html>

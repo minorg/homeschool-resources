@@ -35,7 +35,10 @@
         "noUnusedImports": "off",
         "noUnusedVariables": "off"
       },
-      "recommended": true
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "off"
+      }
     }
   },
   "vcs": {

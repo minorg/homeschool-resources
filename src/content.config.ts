@@ -3,12 +3,20 @@ import { glob } from "astro/loaders";
 
 const pages = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
-  //   schema: z.object({
-  //     title: z.string(),
-  //     permalink: z.string().optional(),
-  //   }),
+  schema: z.object({
+    title: z.string(),
+  }),
 });
 
-// Expose your defined collection to Astro
-// with the `collections` export
-export const collections = { pages };
+const resources = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/resources" }),
+  schema: z.object({
+    audience: z.enum(["adult", "child"]),
+    description: z.string().optional(),
+    order: z.number().optional(),
+    title: z.string(),
+    type: z.enum(["book"]),
+  }),
+});
+
+export const collections = { pages, resources };

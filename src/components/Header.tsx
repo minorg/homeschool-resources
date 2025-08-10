@@ -15,19 +15,19 @@ function Header() {
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="/resources-for-parents">For Parents</a>
+              <a href="/resources/adult">For Parents</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="/resources-for-kids">For Kids</a>
+              <a href="/resources/child">For Kids</a>
             </MenubarTrigger>
           </MenubarMenu>
-          <MenubarMenu>
+          {/* <MenubarMenu>
             <MenubarTrigger>
               <a href="/contact">Contact</a>
             </MenubarTrigger>
-          </MenubarMenu>
+          </MenubarMenu> */}
         </Menubar>
       </div>
     </header>

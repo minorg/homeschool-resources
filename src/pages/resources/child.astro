@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import ResourcesPage from "@/components/ResourcesPage.astro";
+
+const resources = await getCollection(
+    "resources",
+    ({ data }) => data.audience === "child",
+);
+---
+
+<ResourcesPage resources={resources} title="Resources for kids" />

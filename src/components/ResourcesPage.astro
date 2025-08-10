@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ResourceCard from "@/components/ResourceCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+type Resource = CollectionEntry<"resources">;
+
+interface Props {
+    readonly resources: Resource[];
+    readonly title: string;
+}
+
+const { resources, title } = Astro.props;
+
+// 1. Fetch all resources
+// 2. Sort them for consistent ordering
+resources.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+// 3. Create separate arrays for each category
+const resourcesByType = resources.reduce(
+    (map, resource) => {
+        if (!map[resource.data.type]) {
+            map[resource.data.type] = [];
+        }
+        map[resource.data.type]!.push(resource);
+        return map;
+    },
+    {} as Record<Resource["data"]["type"], Resource[]>,
+);
+
+const resourceTypeLabels: Record<string, string> = {
+    book: "Books",
+};
+---
+
+<BaseLayout title={title}>
+    {
+        Object.entries(resourcesByType).map(([resourceType, resources]) => (
+            <div>
+                <h2 class="text-3xl font-bold mb-4 tracking-tight">
+                    {resourceTypeLabels[resourceType]!}
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {resources.map((resource) => (
+                        <ResourceCard client:visible resource={resource} />
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</BaseLayout>
