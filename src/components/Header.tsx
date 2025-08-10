@@ -25,7 +25,9 @@ function Header() {
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="mailto:homeschool-resources@minorgordon.net">Contact</a>
+              <a href="mailto:homeschool-resources@minorgordon.net?subject=Homeschool resources">
+                Contact
+              </a>
             </MenubarTrigger>
           </MenubarMenu>
         </Menubar>
