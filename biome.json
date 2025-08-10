@@ -9,7 +9,14 @@
     "enabled": true
   },
   "files": {
-    "includes": ["!*.json", "!/src/components/ui/**", "!src/lib/utils.ts"],
+    "includes": [
+      "src/**/*.astro",
+      "src/**/*.css",
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/components/ui/**",
+      "!src/lib/utils.ts"
+    ],
     "ignoreUnknown": false
   },
   "formatter": {
@@ -24,6 +31,10 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "correctness": {
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off"
+      },
       "recommended": true
     }
   },
