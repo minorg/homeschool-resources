@@ -1,16 +1,13 @@
 ---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
+const entry = await getEntry("pages", "index");
+const { Content } = await render(entry);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Welcome to Homeschool Hub">
+	<div class="prose dark:prose-invert max-w-none text-lg">
+		<Content />
+	</div>
+</BaseLayout>
