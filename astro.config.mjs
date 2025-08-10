@@ -7,9 +7,10 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  base: 'homeschool-resources',  
+  integrations: [react()],
+  site: 'https://minorg.github.io',
   vite: {
     plugins: [tailwindcss()],
   },
-
-  integrations: [react()],
 });

@@ -1,26 +1,26 @@
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar";
 
-function Header() {
+function Header({ baseUrl }: { baseUrl: string }) {
   return (
     <header className="border-b">
       <div className="container mx-auto px-6 py-2 flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold tracking-tight">
+        <a href={baseUrl} className="text-2xl font-bold tracking-tight">
           Homeschool Hub
         </a>
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="/">Home</a>
+              <a href={baseUrl}>Home</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="/resources/adult">For Parents</a>
+              <a href={`${baseUrl}/resources/adult`}>For Parents</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href="/resources/child">For Kids</a>
+              <a href={`${baseUrl}/resources/child`}>For Kids</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
