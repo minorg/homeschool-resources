@@ -1,0 +1,35 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Header from "@/components/Header";
+import "@/styles/globals.css";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title} | Homeschool Hub</title>
+        <ClientRouter />
+    </head>
+    <body class="bg-background text-foreground min-h-screen flex flex-col">
+        <Header client:load />
+        <main class="container mx-auto px-6 py-8 flex-grow">
+            <h1 class="text-4xl font-bold mb-8 tracking-tight">{title}</h1>
+            <slot />
+        </main>
+        <footer class="bg-muted text-muted-foreground mt-12 py-6">
+            <div class="container mx-auto px-6 text-center">
+                <p>
+                    &copy; {new Date().getFullYear()} Homeschool Hub. All rights
+                    reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
