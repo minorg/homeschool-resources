@@ -1,6 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import ResourcesPage from "@/components/ResourcesPage.astro";
+
+const page = (await getEntry("pages", "resources/adult"))!;
 
 const resources = await getCollection(
     "resources",
@@ -8,4 +10,4 @@ const resources = await getCollection(
 );
 ---
 
-<ResourcesPage resources={resources} title="Resources for adults" />
+<ResourcesPage resources={resources} {...page.data} />

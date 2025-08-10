@@ -23,11 +23,11 @@ function Header() {
               <a href="/resources/child">For Kids</a>
             </MenubarTrigger>
           </MenubarMenu>
-          {/* <MenubarMenu>
+          <MenubarMenu>
             <MenubarTrigger>
-              <a href="/contact">Contact</a>
+              <a href="mailto:homeschool-resources@minorgordon.net">Contact</a>
             </MenubarTrigger>
-          </MenubarMenu> */}
+          </MenubarMenu>
         </Menubar>
       </div>
     </header>
