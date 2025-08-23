@@ -5,22 +5,22 @@ function Header({ baseUrl }: { baseUrl: string }) {
     <header className="border-b">
       <div className="container mx-auto px-6 py-2 flex justify-between items-center">
         <a href={baseUrl} className="text-2xl font-bold tracking-tight">
-          Homeschool Hub
+          The Bookish Homeschooler
         </a>
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href={baseUrl}>Home</a>
+              <a href={baseUrl}>About</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href={`${baseUrl}/resources/adult`}>For Parents</a>
+              <a href={`${baseUrl}/resources/adult`}>Resources for adults</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href={`${baseUrl}/resources/child`}>For Kids</a>
+              <a href={`${baseUrl}/resources/child`}>Resources for kids</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
