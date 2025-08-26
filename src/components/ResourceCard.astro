@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry, render } from "astro:content";
+import { marked } from "marked";
 import {
   Card,
   CardContent,
@@ -19,10 +20,10 @@ const { Content } = await render(resource);
 
 <Card>
   <CardHeader>
-    <CardTitle>{resource.data.title}</CardTitle>
+    <CardTitle set:html={marked.parse(resource.data.title)} />
     {
-      resource.data.description && (
-        <CardDescription>{resource.data.description}</CardDescription>
+      resource.data.creator && (
+        <CardDescription set:html={marked.parse(resource.data.creator)} />
       )
     }
   </CardHeader>

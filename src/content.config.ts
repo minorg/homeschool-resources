@@ -12,7 +12,7 @@ const resources = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/resources" }),
   schema: z.object({
     audience: z.enum(["adult", "child"]),
-    description: z.string().optional(),
+    creator: z.string().optional(),
     order: z.number().optional(),
     title: z.string(),
     type: z.enum(["book"]),
