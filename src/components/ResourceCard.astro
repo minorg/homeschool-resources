@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, render } from "astro:content";
 import { marked } from "marked";
+import type { ReactElement } from "react";
 import {
   Card,
   CardContent,
@@ -16,11 +17,27 @@ interface Props {
 const { resource } = Astro.props;
 
 const { Content } = await render(resource);
+
+let titleHtml = (marked.parse(resource.data.title) as string).trimEnd();
+if (titleHtml.endsWith("</p>")) {
+  titleHtml = titleHtml.substring(0, titleHtml.length - "</p>".length);
+}
+if (titleHtml.startsWith("<p>")) {
+  titleHtml = titleHtml.substring("<p>".length);
+}
 ---
 
 <Card>
   <CardHeader>
-    <CardTitle set:html={marked.parse(resource.data.title)} />
+    <CardTitle
+      >{
+        resource.data.url ? (
+          <a class="underline" href={resource.data.url} set:html={titleHtml} />
+        ) : (
+          <span set:html={titleHtml} />
+        )
+      }</CardTitle
+    >
     {
       resource.data.creator && (
         <CardDescription set:html={marked.parse(resource.data.creator)} />

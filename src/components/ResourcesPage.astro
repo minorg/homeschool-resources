@@ -36,22 +36,28 @@ const resourcesByType = resources.reduce(
 
 const resourceTypeLabels: Record<string, string> = {
     book: "Books",
+    curriculum: "Curricula",
+    video: "Videos",
 };
 ---
 
 <BaseLayout title={title}>
     {
-        Object.entries(resourcesByType).map(([resourceType, resources]) => (
-            <div>
-                <h2 class="text-lg font-bold mb-4 tracking-tight">
-                    {resourceTypeLabels[resourceType]!}
-                </h2>
-                <div class="flex flex-col gap-6">
-                    {resources.map((resource) => (
-                        <ResourceCard resource={resource} />
-                    ))}
+        Object.keys(resourcesByType)
+            .toSorted((left, right) => left.localeCompare(right))
+            .map((resourceType) => (
+                <div>
+                    <h2 class="text-lg font-bold mb-2 tracking-tight">
+                        {resourceTypeLabels[resourceType]!}
+                    </h2>
+                    <div class="flex flex-col gap-6 mb-8">
+                        {resourcesByType[
+                            resourceType as keyof typeof resourcesByType
+                        ].map((resource) => (
+                            <ResourceCard resource={resource} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        ))
+            ))
     }
 </BaseLayout>
