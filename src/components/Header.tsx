@@ -15,12 +15,12 @@ function Header({ baseUrl }: { baseUrl: string }) {
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href={`${baseUrl}/resources/adult`}>Resources for adults</a>
+              <a href={`${baseUrl}resources/adult`}>Resources for adults</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger>
-              <a href={`${baseUrl}/resources/child`}>Resources for kids</a>
+              <a href={`${baseUrl}resources/child`}>Resources for kids</a>
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
