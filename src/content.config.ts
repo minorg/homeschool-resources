@@ -15,7 +15,7 @@ const resources = defineCollection({
     creator: z.string().optional(),
     order: z.number().optional(),
     title: z.string(),
-    type: z.enum(["book", "curriculum", "video"]),
+    type: z.enum(["article", "book", "curriculum", "video"]),
     url: z.string().url().optional(),
   }),
 });
